@@ -25,7 +25,6 @@ def draw_card():
 
     label_card.config(text=next_card, font=("Arial", 44))
     deck.remove(next_card)
-    # print(f"Cards Drawn: {52 - len(deck)}")
     label_remaining.config(text=f"{len(deck)} cards left")
     if len(deck) == 0:
         button_draw.config(text="No Cards Left", state="disabled")
@@ -39,13 +38,12 @@ def reset_deck(packs):
     global deck
     deck = build_deck(packs)
     label_remaining.config(text=f"{len(deck)} cards left")
+    button_draw.config(text="D R A W", state="active")
 
 
 window = Tk()
 window.config(pady=20, padx=20)
 window.title("CARD DRAW")
-
-
 
 label_card = Label(text="", height=5, width=5, font=("Arial", 44), borderwidth=1, relief="solid")
 label_card.grid(column=1, row=1)
